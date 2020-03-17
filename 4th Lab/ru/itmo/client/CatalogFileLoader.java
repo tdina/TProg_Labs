@@ -44,6 +44,12 @@ class CatalogFileLoader implements CatalogLoader {
             e.printStackTrace();
             throw new CatalogLoadException();
         }
+        
+        try {
+            fis.close(); 
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
 
