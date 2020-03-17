@@ -41,14 +41,14 @@ public class Main {
         cat.addItem(i3);
         long begin = new Date().getTime();
 
-        for(int i=0; i<100000;i++)
+        for(int i=0; i<100000; i++)
             cat.findItemByID(10);
         long end = new Date().getTime();
-        System.out.println("In HashMap: "+(end-begin)); begin = new Date().getTime();
-        for(int i=0; i<100000;i++)
+        System.out.println("In HashMap: " + (end-begin)); begin = new Date().getTime();
+        for(int i=0; i<100000; i++)
             cat.findItemByIDAL(10);
         end = new Date().getTime();
-        System.out.println("In ArrayList: "+(end-begin));
+        System.out.println("In ArrayList: " + (end-begin));
 
         CatalogLoader loader = new CatalogStubLoader();
         loader.load(cat);
