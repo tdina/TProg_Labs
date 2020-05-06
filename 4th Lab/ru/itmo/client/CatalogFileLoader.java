@@ -11,6 +11,7 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.util.Date;
 import java.util.Scanner;
+import java.util.io.IOException
 
 class CatalogFileLoader implements CatalogLoader {
     private String fileName;
@@ -19,22 +20,21 @@ class CatalogFileLoader implements CatalogLoader {
         this.fileName = fileName;
     }
 
-    public void load(ItemCatalog cat) throws CatalogLoadException {
+   public void load(ItemCatalog cat) throws CatalogLoadException, IOException {
         File f = new File(fileName);
-        FileInputStream fis;
+
         String line;
-        try {
-            fis = new FileInputStream(f);
+        try (FileInputStream fis = new FileInputStream(f)) {
             Scanner s = new Scanner(fis);
 
             while(s.hasNextLine()){
                 line = s.nextLine();
-                if(line.length()==0) break;
+                if(line.length() == 0) break;
                 String[] item_fld = line.split(";");
                 String name = item_fld[0];
                 float price = Float.parseFloat(item_fld[1]);
                 short expires = Short.parseShort(item_fld[2]);
-                FOODItem item = new FOODItem(name,price,null, new Date(),expires);
+                FoodItem item = new FoodItem(name, price, null, new Date(), expires);
                 cat.addItem(item);
             }
         } catch (FileNotFoundException e) {
@@ -44,12 +44,7 @@ class CatalogFileLoader implements CatalogLoader {
             e.printStackTrace();
             throw new CatalogLoadException();
         }
-        
-        try {
-            fis.close(); 
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+    
     }
 
 
