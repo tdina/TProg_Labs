@@ -55,7 +55,7 @@ public class FOODItem extends GenericItem {
         int result = 1;
         result = prime * result + getID();
         result = prime * result + getName().hashCode();
-        result = prime * result + (String.valueOf(getPrice()).hashCode();
+        result = prime * result + (String.valueOf(getPrice()).hashCode());
         result = prime * result + getCat().hashCode();
         result = prime * result + expires;
         return result;
