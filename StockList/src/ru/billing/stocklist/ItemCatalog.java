@@ -7,8 +7,9 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 public class ItemCatalog {
-    private HashMap<Integer,GenericItem> catalog = new HashMap<Integer,GenericItem>();
-    private ArrayList<GenericItem> ALCatalog = new ArrayList<GenericItem>();
+    private Map<Integer, GenericItem> catalog = new HashMap<>();
+    private List<GenericItem> ALCatalog = new ArrayList<>();
+
 
     //public void addItem(ru.billing.stocklist.GenericItem item) добавляет товар в каталог
     public void addItem(GenericItem item) throws ItemAlreadyExistsException {
