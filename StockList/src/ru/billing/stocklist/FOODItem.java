@@ -30,17 +30,16 @@ public class FOODItem extends GenericItem {
         this.expires = expires;
     }
 
-    public FOODItem(String name, float price, FOODItem analog, Date date, short expires) {
+   public FOODItem(String name, float price, FOODItem analog, Date date, short expires) {
         super(name, price, analog);
         this.dateOfIncome = date;
         this.expires = expires;
     }
     public FOODItem(String name, float price, short expires) {
-        super(name, price, Category.GENERAL);
         this.expires = expires;
     }
     public FOODItem(String name) {
-        super(name, 0, Category.GENERAL);
+        
     }
 
 
