@@ -93,6 +93,17 @@ public class GenericItem implements Cloneable {
     void printAll() {
         System.out.printf("ID: %d , Name: %-20s , price:%5.2f \n", this.ID, this.name, this.price);
     }
+    
+     @Override
+    public int hashCode() {
+        final int prime = 31;
+        int result = 1;
+        result = prime * result + ID;
+        result = prime * result + name.hashCode();
+        result = prime * result + (String.valueOf(price)).hashCode();
+        result = prime * result + cat.hashCode();
+        return result;
+    }
 
     public boolean equals(Object o) {
         if (this == o) {
