@@ -6,6 +6,5 @@ public enum Category {
     DRESS,
     GENERAL;
 
-    private Category() {
-    }
+    
 }
