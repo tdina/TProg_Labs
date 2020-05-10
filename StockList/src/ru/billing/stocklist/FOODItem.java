@@ -48,6 +48,17 @@ public class FOODItem extends GenericItem {
         System.out.println("Date of Income: " + this.df);
         System.out.printf("ID: %d , Name: %-20s , price:%5.2f, Expires: %d \n", this.getID(), this.getName(), this.getExpires(), this.expires);
     }
+    
+     @Override
+    public int hashCode() {
+        final int prime = 31;
+        int result = 1;
+        result = prime * result + getID();
+        result = prime * result + getName().hashCode();
+        result = prime * result + (String.valueOf(getPrice()).hashCode();
+        result = prime * result + getCat().hashCode();
+        result = prime * result + expires;
+        return result;
 
     public boolean equals(Object o) {
         if (this == o) {
